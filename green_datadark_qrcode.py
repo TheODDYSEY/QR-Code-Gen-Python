@@ -2,10 +2,11 @@ import segno
 
 qrcode = segno.make_qr("Hello World")
 qrcode.save(
-    "green_datadark_qrcode.png",
+    "green_datamodules_qrcode.png",
     scale=5,
-    light="lightblue"
+    light="lightblue",
     dark="darkblue",
     data_dark="green",
+    data_light="lightgreen",
     
 )
