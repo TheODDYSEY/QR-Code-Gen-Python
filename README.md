@@ -6,9 +6,9 @@ This tutorial will guide you through the process of creating QR codes in Python 
 
 Before you begin, make sure you have Segno installed. You can install it using pip:
 
-# bash
+```bash
 $ python -m pip install segno
-
+```
 
 ## Creating a Basic QR Code
 
@@ -17,27 +17,27 @@ To create a basic black-and-white QR code that encodes some content, follow thes
 1. Create a Python file, e.g., `basic_qrcode.py`.
 2. Import the Segno library:
 
-# python
+```python
 import segno
-
+```
 
 3. Use the `make_qr()` function to encode the content you want. For example, to encode the text "Hello, World":
 
-# python
+```python
 qrcode = segno.make_qr("Hello, World")
-
+```
 
 4. Save the QR code as an image using the `.save()` method. Specify the filename, including an optional file path:
 
-# python
+```python
 qrcode.save("basic_qrcode.png")
-
+```
 
 5. Run the Python script from your command line:
 
-# bash
+```bash
 $ python basic_qrcode.py
-
+```
 
 Congratulations! You've created a basic black-and-white QR code.
 
@@ -45,64 +45,64 @@ Congratulations! You've created a basic black-and-white QR code.
 
 If you find the QR code difficult to scan due to its size, you can adjust it by adding a scale parameter to the `.save()` method. The scale parameter changes the width and height of the QR code's modules. For example, to create a QR code with 5x5 pixel modules:
 
-# python
+```python
 qrcode.save("scaled_qrcode.png", scale=5)
-
+```
 
 ## Formatting the Border of the QR Code
 
 To change the size of the border (quiet zone) around the QR code, you can modify the border parameter in the `.save()` method. By default, the quiet zone is four modules on each side. To remove it, set `border=0`:
 
-# python
+```python
 qrcode.save("borderless_qrcode.png", border=0)
-
+```
 
 To create a QR code with a wider border, increase the value of the border parameter:
 
-# python
+```python
 qrcode.save("wide_border_qrcode.png", border=10)
-
+```
 
 ## Changing the Colors of the QR Code
 
 You can make your QR codes more colorful by changing their colors. Use the `.save()` method with the light and dark parameters to adjust the colors of the light and dark modules of the QR code:
 
-# python
+```python
 qrcode.save("colorful_qrcode.png", light="lightblue", dark="darkgreen")
-
+```
 
 You can also set the color of the quiet zone:
 
-# python
+```python
 qrcode.save("colorful_qrcode.png", light="lightblue", dark="darkgreen", quiet_zone="maroon")
-
+```
 
 To change the colors of the data modules (the actual data blocks), use the data_light and data_dark parameters:
 
-# python
+```python
 qrcode.save("colorful_data_qrcode.png", data_light="lightgreen", data_dark="darkblue")
-
+```
 
 ## Rotating the QR Code
 
 You can rotate a QR code using the `.to_pil()` method. Specify the rotation angle in degrees. To rotate by 45 degrees and expand the canvas to contain the whole code:
 
-# python
+```python
 qrcode_rotated = qrcode.to_pil().rotate(45, expand=True)
 qrcode_rotated.save("rotated_qrcode.png")
-
+```
 
 ## Creating Animated QR Codes
 
 To create an animated QR code with a moving background, you'll need to install additional dependencies: pillow and qrcode-artistic:
 
-# bash
+```bash
 $ python -m pip install pillow qrcode-artistic
-
+```
 
 Here's how you can create an animated QR code:
 
-# python
+```python
 import segno
 from urllib.request import urlopen
 
@@ -114,7 +114,7 @@ qrcode.to_artistic(
     target="animated_qrcode.gif",
     scale=5
 )
-
+```
 
 This code creates a QR code with an animated background using a GIF. You can adjust the parameters as needed.
 
